@@ -198,10 +198,12 @@
                 else if(prediction[0].probability.toFixed(2) > 0.80)
                 {
                     leftKeyFlag = true;
+                    rigthKeyFlag = false;
                 }
                 else if(prediction[1].probability.toFixed(2) > 0.80)
                 {
                     rigthKeyFlag = true;
+                    leftKeyFlag = false;
                 }
             }
         </script>
