@@ -10,7 +10,7 @@
         <div>Teachable Machine Image Model (block)</div>
         <canvas id="canvas" width="480" height="400"></canvas>
         <style>canvas { background: green; }</style>
-        <button type="button" onclick="init()">Start</button>
+        <button type="button" onclick="init2()" onclick="init()">Start</button>
         <div id="webcam-container"></div>
         <div id="label-container"></div>
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
@@ -141,6 +141,12 @@
                 drawBar();
             }
             
+            function init2() {
+                document.addEventListener("keydown", keyDownHandler);
+                document.addEventListener("keyup", keyUpHandler);
+                let interval = setInterval(draw, 10);
+            }
+
             // More API functions here:
             // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
         
@@ -174,10 +180,6 @@
                 for (let i = 0; i < maxPredictions; i++) { // and class labels
                     labelContainer.appendChild(document.createElement("div"));
                 }
-
-                document.addEventListener("keydown", keyDownHandler);
-                document.addEventListener("keyup", keyUpHandler);
-                let interval = setInterval(draw, 10);
             }
         
             async function loop() {
