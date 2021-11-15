@@ -108,9 +108,9 @@
 
             function drawBar() {
                 if (rigthKeyFlag && barX < canvas.width - BAR_WIDTH) {
-                    barX += 7;
+                    barX += 5;
                 } else if (leftKeyFlag && barX > 0) {
-                    barX -= 7;
+                    barX -= 5;
                 }
                 ctx.beginPath();
                 ctx.rect(barX, canvas.height - BAR_HEIGHT, BAR_WIDTH, BAR_HEIGHT);
@@ -167,7 +167,7 @@
                 maxPredictions = model.getTotalClasses();
         
                 // Convenience function to setup a webcam
-                const flip = true; // whether to flip the webcam
+                const flip = false; // whether to flip the webcam
                 webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
                 await webcam.setup(); // request access to the webcam
                 await webcam.play();
