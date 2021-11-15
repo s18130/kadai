@@ -191,7 +191,12 @@
             async function predict() {
                 // predict can take in an image, video or canvas html element
                 const prediction = await model.predict(webcam.canvas);
-                if(prediction[0].probability.toFixed(2) > 0.80)
+                if(prediction[2].probability.toFixed(2) > 0.85)
+                {
+                    rigthKeyFlag = false;
+                    leftKeyFlag = false;
+                }
+                else if(prediction[0].probability.toFixed(2) > 0.80)
                 {
                     leftKeyFlag = true;
                 }
